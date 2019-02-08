@@ -1,1 +1,66 @@
-Master
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Food Menu</title>
+
+  
+</head>
+
+<body>
+    <select id="quantity">
+        <option value="">Quantity</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <select id="size">
+          <option value="">Size</option>
+          <option value="ounces">Ounces</option>
+          <option value="cup">Cup</option>
+          <option value="large">Large</option>
+        </select>
+          
+        
+  <input type="text" placeholder="Put in Food" id="food-name">
+  <button id="search-button">Search</button>
+
+  <h1>The Food Menu</h1>
+    <p>Food: <span id="food"></span></p> 
+    <p>Calories: <span id="calories"></span></p>
+    <p>Carbs: <span id="carbs"></span></p>
+    <p>Protein: <span id="protein"></span></p>
+    <p>Fat: <span id="fat"></span></p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    var YOUR_APP_ID = '060d6c07';
+    var YOUR_APP_KEY = '4caf8f45e89f735e57b03965c8dc01b8';
+    
+
+    $('button').on('click', function () {
+      var food = $("#food-name").val();
+      var quantity = $("#quantity").val();
+      var size = $("#size").val();
+      var searchString = quantity + " " + size + " " + food;
+      
+      $.ajax({
+        url: `https://api.edamam.com/api/nutrition-data?app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&ingr=${searchString}`,
+        method: "GET"
+      }).then(function (response) {
+        console.log(response);
+        $('#food').text(food);
+        $('#calories').text(response.calories);
+        $('#carbs').text(response.totalNutrients.CHOCDF.quantity);
+        $('#protein').text(response.totalNutrients.PROCNT.quantity);
+        $('#fat').text(response.totalNutrients.FAT.quantity);
+      })
+    });
+
+  </script>
+</body>
+</html>

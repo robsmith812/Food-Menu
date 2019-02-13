@@ -12,6 +12,7 @@
 <body>
   <h1>The Food Menu</h1>
   
+<!-- this will be our ajax joint -->
   <select id="quantity">
     <option value="">Quantity</option>
     <option value="1">1</option>
@@ -30,6 +31,11 @@
   <input type="text" placeholder="Put in Food" id="food-name">
   <button id="search-button">Search</button>
 
+
+  <input type="text" placeholder="Put in Food" id="food-name">
+  <button id="search-button">Search</button>
+
+  <h1>The Food Menu</h1>
   <p>Food: <span id="food"></span></p>
   <p>Calories: <span id="calories"></span></p>
   <p>Carbs: <span id="carbs"></span></p>
@@ -71,6 +77,28 @@
 
 
 
+    var YOUR_APP_ID = '060d6c07';
+    var YOUR_APP_KEY = '4caf8f45e89f735e57b03965c8dc01b8';
+
+
+    $('button').on('click', function () {
+      var food = $("#food-name").val();
+      var quantity = $("#quantity").val();
+      var size = $("#size").val();
+      var searchString = quantity + " " + size + " " + food;
+
+      $.ajax({
+        url: `https://api.edamam.com/api/nutrition-data?app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&ingr=${searchString}`,
+        method: "GET"
+      }).then(function (response) {
+        console.log(response);
+        $('#food').text(food);
+        $('#calories').text(response.calories);
+        $('#carbs').text(response.totalNutrients.CHOCDF.quantity);
+        $('#protein').text(response.totalNutrients.PROCNT.quantity);
+        $('#fat').text(response.totalNutrients.FAT.quantity);
+      })
+    });
 
   </script>
 </body>
@@ -78,7 +106,7 @@
 </html>
 
 
-<!-- food recipe api
+<!-- <!-- food recipe api
 Application ID- 65b4957f
 Application key - 2307311a6f68d1a304d10e8552b128ed	 -->
 
@@ -93,3 +121,4 @@ for each ingredient checked off, get the value of that element selected and pump
 create a button next to find recipes called find selected ingredients
 
  -->
+</html> -->

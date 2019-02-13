@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Food Menu</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
 
 </head>
 
@@ -59,8 +61,39 @@
     </table>
   </div>
 
+  <button id="add-ingredient">Add Ingredient</button>
+
+  <br />
+  <br />
+  <table class="table" id="ingredients">
+    <tr>
+      <th>Ingredient</th>
+      <th>Calories</th>
+    </tr>
+  </table>
+  <div>Total Ingredients Calories: <span id="total-ingredients-calories"></span></div>
+
+  <button id="find-recipes">Find Recipes</button>
+
+  <table class="table" id="recipes-table">
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Total Calories</th>
+    </tr>
+  </table>
+
+  <!-- <p>Total Calories: <span id="total-calories"></span></p> -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/menu.js"></script>
   <script type="text/javascript">
+  
+
+
+   
+
+
 
     var YOUR_APP_ID = '060d6c07';
     var YOUR_APP_KEY = '4caf8f45e89f735e57b03965c8dc01b8';
@@ -102,3 +135,21 @@
 </body>
 
 </html>
+
+
+<!-- <!-- food recipe api
+Application ID- 65b4957f
+Application key - 2307311a6f68d1a304d10e8552b128ed	 -->
+
+<!-- Need to do 
+figure way to add ingredient calories and give total calories- DONE!
+figure a way to find recipes combining chosen ingredients( e.g if user inputs apples and bananas, find recipes that use both banana and apples as ingredients)- DONE!
+Figure out bootstrap alternative
+Figure out how to add firebase
+MAybe have the recipe link open in a different page
+Add a check box next to each element of ingredient 
+for each ingredient checked off, get the value of that element selected and pump that value into the queryURL to find recipes
+create a button next to find recipes called find selected ingredients
+
+ -->
+</html> -->

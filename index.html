@@ -10,38 +10,56 @@
 </head>
 
 <body>
-  <h1>The Food Menu</h1>
-  
-<!-- this will be our ajax joint -->
-  <select id="quantity">
-    <option value="">Quantity</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <select id="size">
-    <option value="">Size</option>
-    <option value="ounces">Ounces</option>
-    <option value="cup">Cup</option>
-    <option value="large">Large</option>
-  </select>
+  <!-- this will be our html branch! -->
 
-  <input type="text" placeholder="Put in Food" id="food-name">
-  <button id="search-button">Search</button>
+  <h1>Spork</h1>
+  <h2>Meal Prep Made Easy</h2>
 
+  <!-- Food Selction Options -->
+  <div>
+    <input type="text" placeholder="# of Food Increments" id="quantity">
 
-  <input type="text" placeholder="Put in Food" id="food-name">
-  <button id="search-button">Search</button>
+    <select id="size">
+      <option value="">Size</option>
+      <option value="ounces">Ounce(s)</option>
+      <option value="cup">Cup(s)</option>
+      <option value="small">Small</option>
+      <option value="large">Large</option>
+    </select>
 
-  <h1>The Food Menu</h1>
-  <p>Food: <span id="food"></span></p>
-  <p>Calories: <span id="calories"></span></p>
-  <p>Carbs: <span id="carbs"></span></p>
-  <p>Protein: <span id="protein"></span></p>
-  <p>Fat: <span id="fat"></span></p>
+    <input type="text" placeholder="Put in Food" id="food-name">
+    <button id="search-button">Search</button>
+  </div>
 
+  <!-- Food Facts Display -->
+  <div>
+    <p>Food: <span id="food"></span></p>
+    <p>Calories: <span id="calories"></span></p>
+    <p>Carbs: <span id="carbs"></span></p>
+    <p>Protein: <span id="protein"></span></p>
+    <p>Fat: <span id="fat"></span></p>
+  </div>
+
+  <!-- Food to Table Function -->
+  <div>
+    <button id="foodToTable">Move to Table</button>
+  </div>
+
+  <div>
+    <table>
+      <tr>
+        <th>Food</th>
+        <th>Calories</th>
+      </tr>
+      <tr id="foodInfo">
+        <td id="selectedFood"></td>
+        <td id="selectedCalories"></td>
+      </tr>
+      <tr>
+        <td>Total Calories <span id="totalCalories"></span></td>
+      </tr>
+    </table>
+  </div>
 
   <button id="add-ingredient">Add Ingredient</button>
 
@@ -81,7 +99,7 @@
     var YOUR_APP_KEY = '4caf8f45e89f735e57b03965c8dc01b8';
 
 
-    $('button').on('click', function () {
+    $('#search-button').on('click', function () {
       var food = $("#food-name").val();
       var quantity = $("#quantity").val();
       var size = $("#size").val();
@@ -99,6 +117,19 @@
         $('#fat').text(response.totalNutrients.FAT.quantity);
       })
     });
+
+    $('#foodToTable').on('click', function () {
+      var food = $('#food-name').val();
+      var calories = $('#calories').text();
+      
+      // need to get this append underneath
+      var td = $('<td>');
+
+        td.val(food) 
+
+      $('#selectedFood').append(food);
+      $('#selectedCalories').append(calories);
+    })
 
   </script>
 </body>

@@ -76,7 +76,7 @@
     var YOUR_APP_KEY = '4caf8f45e89f735e57b03965c8dc01b8';
 
 
-    $('button').on('click', function () {
+    $('#search-button').on('click', function () {
       var food = $("#food-name").val();
       var quantity = $("#quantity").val();
       var size = $("#size").val();
@@ -94,6 +94,19 @@
         $('#fat').text(response.totalNutrients.FAT.quantity);
       })
     });
+
+    $('#foodToTable').on('click', function () {
+      var food = $('#food-name').val();
+      var calories = $('#calories').text();
+      
+      // need to get this append underneath
+      var td = $('<td>');
+
+        td.val(food) 
+
+      $('#selectedFood').append(food);
+      $('#selectedCalories').append(calories);
+    })
 
   </script>
 </body>

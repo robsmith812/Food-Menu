@@ -10,32 +10,27 @@
 </head>
 
 <body>
-  <h1>The Food Menu</h1>
+  <h1>Spork</h1>
+  <h2>Meal Prep Made Easy</h2>
   
 <!-- this will be our ajax joint -->
-  <select id="quantity">
-    <option value="">Quantity</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+  <input type="text" placeholder="Quantity #" id="quantity">
+  
   <select id="size">
     <option value="">Size</option>
-    <option value="ounces">Ounces</option>
-    <option value="cup">Cup</option>
+    <option value="ounces">Ounce(s)</option>
+    <option value="cup">Cup(s)</option>
+    <option value="pound">Pound(s)</option>
+    <option value="small">Small</option>
     <option value="large">Large</option>
   </select>
 
   <input type="text" placeholder="Put in Food" id="food-name">
   <button id="search-button">Search</button>
+  <!-- <input type="text" placeholder="Put in Food" id="food-name">
+  <button id="search-button">Search</button> -->
 
-
-  <input type="text" placeholder="Put in Food" id="food-name">
-  <button id="search-button">Search</button>
-
-  <h1>The Food Menu</h1>
+  <h3>Nutrition Facts</h3>
   <p>Food: <span id="food"></span></p>
   <p>Calories: <span id="calories"></span></p>
   <p>Carbs: <span id="carbs"></span></p>
@@ -106,19 +101,5 @@
 </html>
 
 
-<!-- <!-- food recipe api
-Application ID- 65b4957f
-Application key - 2307311a6f68d1a304d10e8552b128ed	 -->
-
-<!-- Need to do 
-figure way to add ingredient calories and give total calories- DONE!
-figure a way to find recipes combining chosen ingredients( e.g if user inputs apples and bananas, find recipes that use both banana and apples as ingredients)- DONE!
-Figure out bootstrap alternative
-Figure out how to add firebase
-MAybe have the recipe link open in a different page
-Add a check box next to each element of ingredient 
-for each ingredient checked off, get the value of that element selected and pump that value into the queryURL to find recipes
-create a button next to find recipes called find selected ingredients
-
- -->
-</html> -->
+<!-- add the firebase function
+when you click on recipe it makes a new tab -->
